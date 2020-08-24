@@ -11,6 +11,6 @@ pub fn main() !void {
     var file = try fs.cwd().openFile("./assets/platform-racing-2-v159.swf", .{});
     defer file.close();
 
-    const swf = try SwfFile.init(file.reader());
+    const swf = try SwfFile.init(allocator, file.reader());
     print("{}\n", .{swf.header});
 }
